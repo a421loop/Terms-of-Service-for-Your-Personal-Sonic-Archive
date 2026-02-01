@@ -1,0 +1,239 @@
+/* basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #2d2416;
+    color: #a39876;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: bold;
+    line-height: 1.2;
+    color: #a39876;
+    text-decoration: underline;
+    text-decoration-color: #a39876;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+}
+
+/* Intro section */
+.intro {
+    margin-bottom: 3rem;
+}
+
+.intro p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #a39876;
+}
+
+/* Reveal button */
+.reveal-button-container {
+    margin-bottom: 3rem;
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
+}
+
+.reveal-button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 2px solid #a39876;
+    color: #a39876;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reveal-button:hover {
+    background-color: #a39876;
+    color: #2d2416;
+}
+
+.reveal-button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.reveal-button:disabled:hover {
+    background-color: transparent;
+    color: #a39876;
+}
+
+/* Terms container */
+.terms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Individual term */
+.term {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInTerm 0.6s ease forwards;
+}
+
+@keyframes fadeInTerm {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Circle positioning variations */
+.term.circle-left {
+    flex-direction: row;
+}
+
+.term.circle-right {
+    flex-direction: row-reverse;
+}
+
+.term.circle-top {
+    flex-direction: column;
+}
+
+.term.circle-bottom {
+    flex-direction: column-reverse;
+}
+
+/* Term text */
+.term-text {
+    flex: 1;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    line-height: 1.7;
+}
+
+.term-number {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Sound circle */
+.sound-circle {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 2px solid #a39876;
+    background-color: #3d3426;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sound-circle:hover {
+    width: 180px;
+    height: 180px;
+    min-width: 180px;
+    min-height: 180px;
+}
+
+.sound-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.sound-circle:hover img {
+    opacity: 1;
+}
+
+/* Audio element - hidden */
+.term audio {
+    display: none;
+}
+
+/* Closing section */
+.closing {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #a3987644;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.closing.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.closing p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+    font-style: italic;
+    color: #a39876;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 2rem 1rem;
+    }
+
+    .term {
+        flex-direction: column !important;
+        gap: 1.5rem;
+    }
+
+    .sound-circle {
+        align-self: center;
+    }
+
+    .reveal-button-container {
+        position: static;
+    }
+}
+
+/* Offset variations for visual interest */
+.term.offset-1 {
+    padding-left: 0;
+}
+
+.term.offset-2 {
+    padding-left: 5%;
+}
+
+.term.offset-3 {
+    padding-left: 10%;
+}
+
+.term.offset-4 {
+    padding-left: 3%;
+}
+
+.term.offset-5 {
+    padding-left: 8%;
+}
